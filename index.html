@@ -599,15 +599,30 @@
       </div>
 
       <!-- Bottom -->
-      <div class="footer-bottom">
+      <div class="footer-bottom" style="text-align:center; padding:20px 10px;">
         <p>© <span id="year"></span> Pravin Mishra. All rights reserved.</p>
         <p>Crafted with <span>cloud</span> excellence by Pravin Mishra</p>
-        <p>Pravin Mishra Portfolio v1.0 — Deployed on 05 Feb 2026 — By Sonny Enchill</p>
+        <p>Pravin Mishra Portfolio v1.0 — Deployed on <span id="deployDate"></span> — By Sonny Enchill</p>
       </div>
 
     </div>
   </footer>
 
+
+  <script>
+    (function () {
+      const el = document.getElementById("deployDate");
+      if (!el) return;
+
+      const now = new Date();
+      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const dd = String(now.getDate()).padStart(2, "0");
+      const mon = months[now.getMonth()];
+      const yyyy = now.getFullYear();
+
+      el.textContent = `${dd} ${mon} ${yyyy}`;
+    })();
+  </script>
 
 
 </body>

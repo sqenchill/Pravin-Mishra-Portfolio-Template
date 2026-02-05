@@ -38,5 +38,40 @@ Add this line (example):
 ```html
 <p><strong>Deployed by:</strong> DMI Cohort 2 | Rahul Sharma | Group 4 | Week 1 | 16-01-2026</p>
 ```
+## Footer Requirement
+The portfolio footer displays version, deploy date, and author:
+
+**Pravin Mishra Portfolio v1.0 — Deployed on <DD Mon YYYY> — By Sonny Enchill**
+
+## How the Deploy Date is Generated
+The deploy date is generated automatically on page load using JavaScript and inserted into the footer element with `id="deployDate"` in **DD Mon YYYY** format.
+
+### Footer Snippet
+```html
+<!-- Bottom -->
+      <div class="footer-bottom" style="text-align:center; padding:20px 10px;">
+        <p>© <span id="year"></span> Pravin Mishra. All rights reserved.</p>
+        <p>Crafted with <span>cloud</span> excellence by Pravin Mishra</p>
+        <p>Pravin Mishra Portfolio v1.0 — Deployed on <span id="deployDate"></span> — By Sonny Enchill</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    (function () {
+      const el = document.getElementById("deployDate");
+      if (!el) return;
+
+      const now = new Date();
+      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const dd = String(now.getDate()).padStart(2, "0");
+      const mon = months[now.getMonth()];
+      const yyyy = now.getFullYear();
+
+      el.textContent = `${dd} ${mon} ${yyyy}`;
+    })();
+  </script>
 
 ✅ This proof must be visible in your browser screenshot submission.
